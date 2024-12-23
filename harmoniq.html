@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <title>harmoniq - Demo</title>
+  <style>
+    .audio-tracks {
+      display: flex;
+      flex-flow: column;
+    }
+    .audio-tracks > div {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="audio-tracks">
+    <div id="ap_1"></div>
+    <div id="ap_2"></div>
+  </div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.1/lame.min.js"
+  integrity="sha512-xT0S/xXvkrfkRXGBPlzZPCAncnMK5c1N7slRkToUbv8Z901aUEuKO84tLy8dWU+3ew4InFEN7TebPaVMy2npZw=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script type="module">
+  import { AudioPlayer } from './harmoniq.mjs'
+  let ap1 = new AudioPlayer("#ap_1", `song1.mp3`, 800, 60)
+  let ap2 = new AudioPlayer("#ap_2", `song2.mp3`, 800, 60)
+  setTimeout(() => {
+    ap1.destroy()
+    ap2.destroy()
+  }, 120000)
+</script>
+
+</html>
